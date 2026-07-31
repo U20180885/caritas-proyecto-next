@@ -1,36 +1,249 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🌐 Caritas GRD Web Platform
 
-## Getting Started
+> Full-stack web platform for disaster risk management, developed for **Cáritas Lima** as part of the Software Implementation Project at Pontificia Universidad Católica del Perú (PUCP).
 
-First, run the development server:
+The platform centralizes disaster risk management operations, allowing administrators and volunteers to manage disaster incidents, emergency resources, training activities, humanitarian aid distribution, and disaster preparedness through a unified web interface.
+
+---
+
+# 📖 Overview
+
+The Caritas GRD Web Platform serves as the central management system for the Unified Disaster Risk Management (GRD) project.
+
+It provides administrative tools for coordinating emergency response activities while integrating with the Android mobile application used by field volunteers. Data collected in the mobile application can be synchronized with the central platform, enabling both offline field operations and centralized information management.
+
+---
+
+# ✨ Key Features
+
+- Secure authentication and authorization
+- Disaster incident management
+- Volunteer (brigadista) management
+- Disaster drill administration
+- Emergency kit management
+- Training course administration
+- Donation management
+- Interactive dashboards and reports
+- Geographic visualization of incidents
+- Audit logging
+- Integration with Android mobile application
+
+---
+
+# 🛠️ Technology Stack
+
+## Frontend
+
+- Next.js
+- React
+- TypeScript
+- Tailwind CSS
+
+## Backend
+
+- Next.js API Routes
+- Prisma ORM
+- PostgreSQL
+
+## Authentication
+
+- NextAuth
+
+## Cloud Services
+
+- AWS
+- Amazon S3
+
+## Data Visualization
+
+- Leaflet
+- Recharts
+
+---
+
+# 🏗️ System Architecture
+
+```text
+                    Browser
+                       │
+                       ▼
+             Next.js Frontend (React)
+                       │
+                       ▼
+          API Routes / Server Actions
+                       │
+                       ▼
+                  Prisma ORM
+                       │
+                       ▼
+                 PostgreSQL Database
+                       ▲
+                       │
+         Android Mobile Application
+```
+
+---
+
+# 📦 Main Modules
+
+## Authentication
+
+Secure user login and role-based authorization.
+
+---
+
+## Disaster Risk Management
+
+Registration, monitoring, and management of disaster incidents.
+
+---
+
+## Volunteer Management
+
+Administration of volunteers and emergency personnel.
+
+---
+
+## Disaster Drills
+
+Planning and monitoring of disaster preparedness activities.
+
+---
+
+## Emergency Kits
+
+Management of humanitarian aid distribution.
+
+---
+
+## Training
+
+Management of training courses and educational material.
+
+---
+
+## Reports
+
+Operational dashboards and statistical reports.
+
+---
+
+## Audit
+
+Traceability of system activities.
+
+---
+
+# 📂 Project Structure
+
+```text
+app/
+├── dashboard/
+├── incidencias/
+├── brigadistas/
+├── simulacros/
+├── cursos/
+├── kits/
+├── donaciones/
+├── reportes/
+├── auditoria/
+└── usuarios/
+
+components/
+
+prisma/
+
+services/
+
+lib/
+```
+
+---
+
+# 📱 Mobile Integration
+
+The web platform integrates with the Caritas GRD Android application.
+
+Field volunteers can collect information using the mobile application while working offline. Once connectivity becomes available, the synchronization service uploads local changes to the central platform, ensuring data consistency between both systems.
+
+---
+
+# 👨‍💻 My Contributions
+
+My main contributions focused on backend development and mobile integration.
+
+They included:
+
+- Supporting the integration between the Android application and backend services.
+- Extending the database schema for mobile synchronization.
+- Implementing and maintaining backend endpoints consumed by the Android application.
+- Contributing to database management using Prisma and PostgreSQL.
+- Participating in testing and integration of synchronization workflows.
+
+---
+
+# 🚀 Running the Project
+
+## Clone the repository
+
+```bash
+git clone <repository-url>
+cd caritas-grd-web
+```
+
+## Install dependencies
+
+```bash
+npm install
+```
+
+## Configure environment variables
+
+Create a `.env` file with the required configuration.
+
+Example:
+
+```env
+DATABASE_URL=
+NEXTAUTH_SECRET=
+NEXTAUTH_URL=
+AWS_ACCESS_KEY_ID=
+AWS_SECRET_ACCESS_KEY=
+AWS_REGION=
+```
+
+---
+
+## Run the development server
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+The application will be available at:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+http://localhost:3000
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+# 🔮 Future Improvements
 
-To learn more about Next.js, take a look at the following resources:
+- Real-time notifications
+- GIS improvements
+- Advanced analytics dashboards
+- Performance optimization
+- Enhanced synchronization monitoring
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+# 👥 Team
 
-## Deploy on Vercel
+Developed by a multidisciplinary team as part of the Software Implementation Project at Pontificia Universidad Católica del Perú (PUCP).
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+# 📄 License
+
+This repository is shared for educational and portfolio purposes.
