@@ -1,207 +1,270 @@
 # 🌐 Caritas GRD Web Platform
 
-> Full-stack web platform for disaster risk management, developed for **Cáritas Lima** as part of the Software Implementation Project at Pontificia Universidad Católica del Perú (PUCP).
+> Full-stack web platform for disaster risk management, developed for **Cáritas Lima** as part of the Software Implementation Project at **Pontificia Universidad Católica del Perú (PUCP)**.
 
-The platform centralizes disaster risk management operations, allowing administrators and volunteers to manage disaster incidents, emergency resources, training activities, humanitarian aid distribution, and disaster preparedness through a unified web interface.
-
----
-
-# 📖 Overview
-
-The Caritas GRD Web Platform serves as the central management system for the Unified Disaster Risk Management (GRD) project.
-
-It provides administrative tools for coordinating emergency response activities while integrating with the Android mobile application used by field volunteers. Data collected in the mobile application can be synchronized with the central platform, enabling both offline field operations and centralized information management.
+The platform acts as the central web component of the Caritas GRD information system, providing tools for managing disaster incidents, volunteers, emergency resources, training activities, humanitarian aid and operational information.
 
 ---
 
-# ✨ Key Features
+## Overview
 
-- Secure authentication and authorization
-- Disaster incident management
-- Volunteer (brigadista) management
-- Disaster drill administration
-- Emergency kit management
-- Training course administration
-- Donation management
-- Interactive dashboards and reports
-- Geographic visualization of incidents
-- Audit logging
-- Integration with Android mobile application
+The **Caritas GRD Web Platform** provides centralized management capabilities for the Unified Disaster Risk Management (GRD) system.
+
+The platform supports administrative and operational workflows while integrating with the Android mobile application used by field volunteers.
+
+Information collected in the mobile application can be synchronized with the central platform, allowing field operations to continue offline while maintaining centralized information management.
 
 ---
 
-# 🛠️ Technology Stack
+## 🖥️ Platform Demo
 
-## Frontend
+| Dashboard                                      | Disaster Incident Management                                  |
+| ---------------------------------------------- | ------------------------------------------------------------- |
+| ![Caritas GRD Dashboard](docs/images/home.png) | ![Caritas GRD Incident Management](docs/images/incidents.png) |
 
-- Next.js
-- React
-- TypeScript
-- Tailwind CSS
-
-## Backend
-
-- Next.js API Routes
-- Prisma ORM
-- PostgreSQL
-
-## Authentication
-
-- NextAuth
-
-## Cloud Services
-
-- AWS
-- Amazon S3
-
-## Data Visualization
-
-- Leaflet
-- Recharts
+| Volunteer Management                                             | Reports & Data Visualization                    |
+| ---------------------------------------------------------------- | ----------------------------------------------- |
+| ![Caritas GRD Volunteer Management](docs/images/brigadistas.png) | ![Caritas GRD Reports](docs/images/reports.png) |
 
 ---
 
-# 🏗️ System Architecture
+## Key Features
+
+* Secure authentication and role-based authorization
+* Disaster incident registration and management
+* Volunteer (brigadista) management
+* Disaster drill administration
+* Emergency kit and humanitarian aid management
+* Training and course management
+* Donation management
+* Operational dashboards and reports
+* Geographic visualization of disaster-related information
+* Audit logging and activity traceability
+* Integration with the Android mobile application
+* Data synchronization between mobile and web components
+
+---
+
+## Technology Stack
+
+### Frontend
+
+* **Next.js**
+* **React**
+* **TypeScript**
+* **Tailwind CSS**
+
+### Backend
+
+* **Next.js API Routes**
+* **Server Actions**
+* **Prisma ORM**
+* **PostgreSQL**
+
+### Authentication
+
+* **NextAuth**
+* Role-based authorization
+
+### Cloud & Storage
+
+* **AWS**
+* **Amazon S3**
+
+### Data Visualization
+
+* **Leaflet**
+* **Recharts**
+
+---
+
+## System Architecture
+
+The platform follows a full-stack architecture in which the Next.js application handles the user interface, server-side logic and API layer, while Prisma provides access to the PostgreSQL database.
 
 ```text
-                    Browser
-                       │
-                       ▼
-             Next.js Frontend (React)
-                       │
-                       ▼
-          API Routes / Server Actions
-                       │
-                       ▼
-                  Prisma ORM
-                       │
-                       ▼
-                 PostgreSQL Database
-                       ▲
-                       │
-         Android Mobile Application
+                         Browser
+                            │
+                            ▼
+                Next.js / React Frontend
+                            │
+                            ▼
+             Server Actions / API Routes
+                            │
+                            ▼
+                       Prisma ORM
+                            │
+                            ▼
+                  PostgreSQL Database
+                            ▲
+                            │
+                 Android Mobile App
+                            │
+                            ▼
+                    Sync Workflows
 ```
 
----
-
-# 📦 Main Modules
-
-## Authentication
-
-Secure user login and role-based authorization.
+AWS services are also used for cloud infrastructure and file storage.
 
 ---
 
-## Disaster Risk Management
+## Main Modules
 
-Registration, monitoring, and management of disaster incidents.
+### Authentication & Authorization
 
----
+Secure user authentication and role-based access control.
 
-## Volunteer Management
+### Disaster Risk Management
 
-Administration of volunteers and emergency personnel.
+Registration, management and follow-up of disaster incidents and their associated information.
 
----
+### Volunteer Management
 
-## Disaster Drills
+Administration of brigadistas and emergency personnel, including registration, availability and status tracking.
 
-Planning and monitoring of disaster preparedness activities.
+### Disaster Drills
 
----
+Planning, management and monitoring of disaster preparedness activities.
 
-## Emergency Kits
+### Emergency Kits
 
-Management of humanitarian aid distribution.
+Management of emergency kits and humanitarian aid distribution.
 
----
+### Training
 
-## Training
+Management of training courses, participants and educational resources.
 
-Management of training courses and educational material.
+### Donations
 
----
+Management of donation-related information and processes.
 
-## Reports
+### Reports
 
-Operational dashboards and statistical reports.
+Operational dashboards, statistics and data visualization for monitoring GRD information.
 
----
+### Audit
 
-## Audit
-
-Traceability of system activities.
+Traceability of system activities through audit logs.
 
 ---
 
-# 📂 Project Structure
+## 📱 Mobile Integration
+
+The web platform integrates with the **Caritas GRD Android application** used by field volunteers.
+
+The mobile application follows an offline-first approach and can continue collecting information without network connectivity. Once connectivity becomes available, synchronization workflows exchange data with the central platform.
 
 ```text
-app/
-├── dashboard/
-├── incidencias/
-├── brigadistas/
-├── simulacros/
-├── cursos/
-├── kits/
-├── donaciones/
-├── reportes/
-├── auditoria/
-└── usuarios/
-
-components/
-
-prisma/
-
-services/
-
-lib/
+Field Operations
+      │
+      ▼
+Android Mobile Application
+      │
+      │ Synchronization
+      ▼
+Caritas GRD Web Platform
+      │
+      ▼
+Centralized PostgreSQL Database
 ```
 
----
-
-# 📱 Mobile Integration
-
-The web platform integrates with the Caritas GRD Android application.
-
-Field volunteers can collect information using the mobile application while working offline. Once connectivity becomes available, the synchronization service uploads local changes to the central platform, ensuring data consistency between both systems.
+This integration allows field operations and centralized management to work as part of the same information system.
 
 ---
 
-# 👨‍💻 My Contributions
+## 👨‍💻 My Contributions
 
-My main contributions focused on backend development and mobile integration.
+My main contributions focused on the **backend, database integration and synchronization between the web and mobile components**.
 
 They included:
 
-- Supporting the integration between the Android application and backend services.
-- Extending the database schema for mobile synchronization.
-- Implementing and maintaining backend endpoints consumed by the Android application.
-- Contributing to database management using Prisma and PostgreSQL.
-- Participating in testing and integration of synchronization workflows.
+* Supporting the integration between the Android application and backend services.
+* Extending the PostgreSQL database schema to support mobile synchronization.
+* Implementing and maintaining backend functionality consumed by the Android application.
+* Working with **Prisma ORM** for database access and data management.
+* Contributing to synchronization workflows between local mobile data and the centralized system.
+* Participating in integration testing and troubleshooting.
+* Supporting the implementation of functionality across the web and mobile components.
 
 ---
 
-# 🚀 Running the Project
+## 📂 Project Structure
 
-## Clone the repository
+```text
+.
+├── app/
+│   ├── (auth)/
+│   ├── (protected)/
+│   │   ├── auditoria/
+│   │   ├── brigadistas/
+│   │   ├── capacitaciones/
+│   │   ├── dashboard/
+│   │   ├── donaciones/
+│   │   ├── grd/
+│   │   ├── kits/
+│   │   ├── reportes/
+│   │   ├── simulacros/
+│   │   └── usuarios/
+│   │
+│   ├── actions/
+│   └── api/
+│
+├── components/
+├── core/
+├── docs/
+│   └── images/
+├── lib/
+├── prisma/
+├── public/
+└── services/
+```
+
+The application separates the presentation layer, server-side functionality, database access and shared services.
+
+---
+
+## 🧪 Testing & Validation
+
+The project includes automated testing and project-specific verification utilities.
+
+Available commands include:
+
+```bash
+npm test
+```
+
+```bash
+npm run test:watch
+```
+
+```bash
+npm run verify:grd
+```
+
+```bash
+npm run verify:all
+```
+
+---
+
+## 🚀 Running the Project
+
+### Clone the repository
 
 ```bash
 git clone <repository-url>
-cd caritas-grd-web
+cd caritas-proyecto-next
 ```
 
-## Install dependencies
+### Install dependencies
 
 ```bash
 npm install
 ```
 
-## Configure environment variables
+### Configure environment variables
 
-Create a `.env` file with the required configuration.
-
-Example:
+Create a `.env` file based on the required project configuration.
 
 ```env
 DATABASE_URL=
@@ -212,9 +275,7 @@ AWS_SECRET_ACCESS_KEY=
 AWS_REGION=
 ```
 
----
-
-## Run the development server
+### Run the development server
 
 ```bash
 npm run dev
@@ -222,28 +283,29 @@ npm run dev
 
 The application will be available at:
 
-```
+```text
 http://localhost:3000
 ```
 
 ---
 
-# 🔮 Future Improvements
+## 🔮 Future Improvements
 
-- Real-time notifications
-- GIS improvements
-- Advanced analytics dashboards
-- Performance optimization
-- Enhanced synchronization monitoring
-
----
-
-# 👥 Team
-
-Developed by a multidisciplinary team as part of the Software Implementation Project at Pontificia Universidad Católica del Perú (PUCP).
+* Real-time notifications
+* Enhanced GIS capabilities
+* Advanced analytics and reporting
+* Performance optimization
+* Enhanced synchronization monitoring
+* Additional automation capabilities
 
 ---
 
-# 📄 License
+## 👥 Team
+
+Developed by a multidisciplinary team as part of the **Software Implementation Project** at **Pontificia Universidad Católica del Perú (PUCP)**.
+
+---
+
+## 📄 License
 
 This repository is shared for educational and portfolio purposes.
